@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>부산대학교 행정학과 진로유형테스트</title>
+<meta name="description" content="9가지 질문으로 알아보는 나의 행정학과 진로 유형">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="app">
+
+  <section id="screen-intro" class="screen active">
+    <p class="eyebrow">부산대학교 행정학과</p>
+    <h1>진로유형테스트</h1>
+    <p class="lead">9개의 질문으로 알아보는<br>나에게 맞는 행정학과 진로 유형</p>
+    <ul class="info">
+      <li>소요 시간 약 1분</li>
+      <li>8가지 유형 중 나의 유형 확인</li>
+      <li>결과지 이미지 저장 가능</li>
+    </ul>
+    <button id="start" class="btn primary">테스트 시작하기</button>
+  </section>
+
+  <section id="screen-quiz" class="screen">
+    <div class="progress"><div id="bar-fill"></div></div>
+    <p id="qnum" class="qnum"></p>
+    <h2 id="qtext" class="qtext"></h2>
+    <button id="optA" class="opt"><b>A</b><span></span></button>
+    <button id="optB" class="opt"><b>B</b><span></span></button>
+    <button id="prev" class="btn ghost small">← 이전 질문</button>
+  </section>
+
+  <section id="screen-result" class="screen">
+    <p id="loading" class="loading">결과지를 만들고 있어요…</p>
+    <p id="error" class="hint"></p>
+    <img id="result-img" alt="나의 진로유형 결과지">
+    <p class="hint">모바일에서는 이미지를 길게 눌러 저장할 수도 있어요.</p>
+    <div class="row">
+      <button id="save" class="btn primary">이미지 저장</button>
+      <button id="retry" class="btn ghost">다시 하기</button>
+    </div>
+  </section>
+
+</main>
+<script src="data.js"></script>
+<script src="bg-data.js"></script>
+<script src="result.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

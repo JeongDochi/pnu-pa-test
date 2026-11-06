@@ -20,8 +20,8 @@ button{font:inherit;letter-spacing:inherit}
 .topbar{background:#fff;border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top);position:sticky;top:0;z-index:5}
 .topbar-in{max-width:640px;margin:0 auto;height:60px;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
 .logo{height:34px;width:auto;display:block}
-.dept{font-size:13px;font-weight:700;color:var(--pri);letter-spacing:-.02em}
-@media (max-width:420px){.dept{display:none}}
+.dept{font-size:14px;font-weight:700;color:var(--navy);letter-spacing:-.02em;white-space:nowrap}
+@media (max-width:360px){.dept{font-size:12.5px}.topbar-in{padding:0 14px}}
 
 #app{width:100%;max-width:640px;margin:0 auto;padding:28px 20px 12px;flex:1}
 .screen{display:none;animation:in .35s ease both}

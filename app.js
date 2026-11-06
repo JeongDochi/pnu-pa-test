@@ -82,12 +82,21 @@ $('optA').onclick = () => pick('A');
 $('optB').onclick = () => pick('B');
 $('prev').onclick = () => { if (cur > 0) { cur--; drawQuestion(); } };
 $('retry').onclick = () => show('intro');
-$('save').onclick = () => {
+$('save').onclick = async () => {
   const img = $('result-img');
-  if (!img.src) return;
+  if (!img.src || !last) return;
+  const name = img.dataset.name || 'PNU_진로유형.png';
+  let blob = null;
+  try { blob = await last.blobP; } catch (e) {}
+  if (!blob) {                       // blob 변환 실패 시 dataURL → blob
+    try { blob = await (await fetch(img.src)).blob(); } catch (e) {}
+  }
+  if (!blob) { toast('저장에 실패했어요. 결과지를 길게 누르거나 우클릭해서 저장해 주세요.'); return; }
+  const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
-  a.href = img.src; a.download = img.dataset.name || 'PNU_진로유형.png';
-  document.body.appendChild(a); a.click(); a.remove();
+  a.href = url; a.download = name; a.style.display = 'none';
+  document.body.appendChild(a); a.click();
+  setTimeout(() => { a.remove(); URL.revokeObjectURL(url); }, 4000);
 };
 
 /* ===== 공유: 결과지 이미지를 복사 → 카톡 채팅방 / 인스타 DM 에 붙여넣기 ===== */

@@ -3,49 +3,103 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>부산대학교 행정학과 진로유형테스트</title>
-<meta name="description" content="9가지 질문으로 알아보는 나의 행정학과 진로 유형">
+<title>행정학과 진로유형테스트 | 부산대학교</title>
+<meta name="description" content="9개의 질문으로 알아보는 나의 행정학과 진로 유형 — 부산대학교 행정학과">
+<meta name="theme-color" content="#0b5aa5">
+<meta property="og:type" content="website">
+<meta property="og:title" content="나의 진로 유형은? | 부산대학교 행정학과 진로유형테스트">
+<meta property="og:description" content="9개의 질문으로 알아보는 나의 행정학과 진로 유형">
+<meta property="og:image" content="og.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <img src="logo.png" alt="부산대학교 Arise PNU 같이 더 높게" class="logo">
+    <span class="dept">행정학과 진로유형테스트</span>
+  </div>
+</header>
+
 <main id="app">
 
+  <!-- 1. 시작 -->
   <section id="screen-intro" class="screen active">
-    <p class="eyebrow">부산대학교 행정학과</p>
-    <h1>진로유형테스트</h1>
-    <p class="lead">9개의 질문으로 알아보는<br>나에게 맞는 행정학과 진로 유형</p>
-    <ul class="info">
-      <li>소요 시간 약 1분</li>
-      <li>8가지 유형 중 나의 유형 확인</li>
-      <li>결과지 이미지 저장 가능</li>
-    </ul>
-    <button id="start" class="btn primary">테스트 시작하기</button>
+    <div class="hero">
+      <p class="eyebrow">부산대학교 행정학과 · 진로 탐색</p>
+      <h1>나의 <em>진로 유형</em>은<br>무엇일까요?</h1>
+      <p class="lead">9개의 질문에 답하면 나의 성향에 맞는<br>행정학과 진로 유형과 추천 진로를 알려드려요.</p>
+      <ul class="facts">
+        <li><b>9</b><span>문항</span></li>
+        <li><b>1분</b><span>소요 시간</span></li>
+        <li><b>8</b><span>가지 유형</span></li>
+      </ul>
+      <button id="start" class="btn primary">테스트 시작하기</button>
+      <p class="privacy">응답 내용은 내 기기에서만 처리되며,<br>서버로 전송되거나 저장되지 않습니다.</p>
+      <img class="campus" src="hero.png" alt="부산대학교 캠퍼스 전경">
+    </div>
   </section>
 
+  <!-- 2. 질문 -->
   <section id="screen-quiz" class="screen">
-    <div class="progress"><div id="bar-fill"></div></div>
+    <div class="steps" id="steps" aria-hidden="true"></div>
     <p id="qnum" class="qnum"></p>
     <h2 id="qtext" class="qtext"></h2>
-    <button id="optA" class="opt"><b>A</b><span></span></button>
-    <button id="optB" class="opt"><b>B</b><span></span></button>
-    <button id="prev" class="btn ghost small">← 이전 질문</button>
+    <div class="opts">
+      <button id="optA" class="opt"><b>A</b><span></span></button>
+      <button id="optB" class="opt"><b>B</b><span></span></button>
+    </div>
+    <button id="prev" class="link">← 이전 질문</button>
   </section>
 
+  <!-- 3. 결과 -->
   <section id="screen-result" class="screen">
-    <p id="loading" class="loading">결과지를 만들고 있어요…</p>
+    <p class="eyebrow center">테스트 완료</p>
+    <h2 class="rtitle">나의 진로유형 결과지</h2>
+    <p id="loading" class="loading"><i></i>결과지를 만들고 있어요</p>
     <p id="error" class="hint"></p>
-    <img id="result-img" alt="나의 진로유형 결과지">
-    <p class="hint">모바일에서는 이미지를 길게 눌러 저장할 수도 있어요.</p>
+    <div class="paper" id="paper"><img id="result-img" alt="나의 진로유형 결과지"></div>
+    <p class="zoom-tip" id="zoom-tip">결과지를 누르면 크게 볼 수 있어요</p>
+    <div class="share">
+      <p class="share-t">결과지 복사해서 보내기</p>
+      <div class="share-row">
+        <button id="share-kakao" class="sbtn kakao" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#191919" d="M12 3C6.48 3 2 6.58 2 11c0 2.84 1.87 5.33 4.69 6.75l-.95 3.48c-.08.3.26.54.52.37l4.14-2.74c.53.07 1.05.1 1.6.1 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg>
+          <span>카카오톡<small>이미지 복사</small></span>
+        </button>
+        <button id="share-insta" class="sbtn insta" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          <span>인스타 DM<small>이미지 복사</small></span>
+        </button>
+        <button id="share-link" class="sbtn copy" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.36 0l2.6-2.6a4.5 4.5 0 0 0-6.36-6.36l-1.1 1.1"/><path d="M14 10a4.5 4.5 0 0 0-6.36 0l-2.6 2.6a4.5 4.5 0 0 0 6.36 6.36l1.1-1.1"/></svg>
+          <span>테스트 링크<small>주소 복사</small></span>
+        </button>
+      </div>
+      <p class="hint">버튼을 누르면 결과지가 복사되고 앱이 열려요. 입력창에 붙여넣기 하면 돼요.</p>
+      <button id="share-sheet" class="link share-other" type="button" hidden>다른 앱으로 공유하기</button>
+    </div>
     <div class="row">
-      <button id="save" class="btn primary">이미지 저장</button>
-      <button id="retry" class="btn ghost">다시 하기</button>
+      <button id="save" class="btn primary">결과지 저장하기</button>
+      <button id="retry" class="btn outline">다시 하기</button>
     </div>
   </section>
 
 </main>
+
+<div id="lightbox" hidden role="dialog" aria-label="결과지 확대 보기"><div class="lb-bar"><span>좌우·위아래로 밀어서 보세요</span><button type="button" class="lb-close" id="lb-close">닫기</button></div><div class="lb-scroll"><img id="lb-img" alt="결과지 확대"></div></div>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<footer class="foot">
+  부산대학교 행정학과 &nbsp;|&nbsp; 2026 학생회 동동행정<br>
+  <span>본 검사는 진로 탐색을 위한 참고 자료이며, 결과가 절대적인 기준은 아닙니다.</span>
+</footer>
+
+<script src="config.js"></script>
 <script src="data.js"></script>
 <script src="bg-data.js"></script>
 <script src="result.js"></script>
